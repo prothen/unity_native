@@ -167,8 +167,8 @@ static void UNITY_INTERFACE_API
 ```
 ## FAQ
 - [`EntryPointNotFoundException`](https://answers.unity.com/questions/1360004/entrypointnotfoundexception-native-plugin-help.html)
-	- If entrypoint ommitted then the C# function name is used, the entrypoint parameter allows to use distinct c# function names
-	- Choose Entrypoint as Functionname e.g. `[DllImport("__MyPlugin", EntryPoint = “displayNumber”)]` (C#) for `int displayNumber()`(C++)
+	- If entrypoint ommitted then the C# function name is used to lookup C++ function in DLL, the entrypoint parameter allows to use distinct c# function names
+	- e.g. `[DllImport("__MyPlugin", EntryPoint = “displayNumber”)]` (C#) for `int newDisplayNumber()`(C++)
 	- [Official Microsoft DllImportAttribute.EntryPoint reference](https://docs.microsoft.com/en-us/dotnet/framework/interop/specifying-an-entry-point)
 - [IntPtr namespace](https://docs.microsoft.com/en-us/dotnet/api/system.intptr?view=netcore-3.1)
 	- requires `using System;` and initialise with `IntPtr.Zero;`
