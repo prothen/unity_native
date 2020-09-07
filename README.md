@@ -180,3 +180,26 @@ static void UNITY_INTERFACE_API
 - [Native C++ Plugin persistent object reference in C#](https://answers.unity.com/questions/1200157/nonstatic-extern-functions-from-dll-plugin-import.html?_ga=2.245716996.1632391841.1599469631-970215712.1589606808)
 - [C++ Google Style Guide](https://google.github.io/styleguide/cppguide.html)
 - [C++ Background Thread in Native Plugin](https://ritchielozada.com/2017/06/16/interacting-with-plugins-in-unity-and-visual-studio/)
+
+
+
+## Build ipopt for Windows
+- [build story](https://list.coin-or.org/pipermail/ipopt/2017-June/004471.html) (pure Windows)
+- [get fast BLAS implementation](https://coin-or.github.io/Ipopt/index.html#PREREQUISITES)
+Open directory on `/mnt/c/build_ipopt` from WSL distro Ubuntu 18.04.
+Then install dependencies with 
+```bash
+sudo apt-get install gcc g++ gfortran git patch wget pkg-config liblapack-dev libmetis-dev
+```
+### Build ipopt
+- clone repository `git clone`
+- `mkdir build && cd build`
+	- default: `../configure && make && make tests`
+	- pardiso: `../configure --with-pardiso="$home/software/pardiso/libpardiso600-GNU800-X86-64.so -fopenmp -lgfortran" && make tests`
+### Download solvers
+- [pardiso](https://pardiso-project.org/)
+	- License: `03C0F8E704A1CA20FEBA44B4399176E739E9E5931DE83F43375E7B1C`
+	- `export PATH=/home/colman/software/pardiso:$PATH`
+	- `export LD_LIBRARY_PATH=/home/colman/software/pardiso:$LD_LIBRARY_PATH`
+- [hsl](http://www.hsl.rl.ac.uk/download/thanks/)
+	- 
