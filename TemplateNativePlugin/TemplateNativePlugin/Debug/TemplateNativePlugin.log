@@ -1,0 +1,24 @@
+﻿  pch.cpp
+  dllmain.cpp
+  TemplateNativePlugin.cpp
+C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.h(14,54): error C2011: 'CTemplateNativePlugin': 'class' type redefinition
+C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.h(14): message : see declaration of 'CTemplateNativePlugin'
+C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.h(28,12): error C2011: 'Test': 'class' type redefinition
+C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.h(28): message : see declaration of 'Test'
+C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.cpp(12,7): error C2079: 'persistentObject' uses undefined class 'Test'
+C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.cpp(12,30): error C2027: use of undefined type 'Test'
+C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.h(28): message : see declaration of 'Test'
+C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.cpp(12,26): error C2064: term does not evaluate to a function taking 0 arguments
+C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.cpp(13,26): error C2440: 'return': cannot convert from 'int *' to 'Test *'
+C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.cpp(13,9): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.cpp(17,18): error C2027: use of undefined type 'Test'
+C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.h(28): message : see declaration of 'Test'
+C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.cpp(18,25): error C2027: use of undefined type 'Test'
+C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.h(28): message : see declaration of 'Test'
+C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.cpp(30,24): error C2027: use of undefined type 'CTemplateNativePlugin'
+C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.h(14): message : see declaration of 'CTemplateNativePlugin'
+C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.cpp(31,1): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.cpp(32,11): warning C4508: '{ctor}': function should return a value; 'void' return type assumed
+C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.cpp(33,1): error C2617: '{ctor}': inconsistent return statement
+C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.cpp(30): message : see declaration of '{ctor}'
+  Generating Code...

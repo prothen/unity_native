@@ -1,0 +1,2 @@
+#define TEMPLATENATIVEPLUGIN_API __declspec(dllexport)
+#define TEMPLATENATIVEPLUGIN_API __declspec(dllimport)
