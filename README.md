@@ -4,8 +4,9 @@ This repository collects setup information about designing a native plugin for U
 ## Plugin Setup (Native-Plugin / C++)
 ### VS2019
 - Create new project select `C++` -> `Dynamic-Link-Library (DLL)`
-- Set Project name (empty Location and sultion name) & uncheck same directory for solution and directory
+- Set Project name (empty Location and solution name) & uncheck same directory for solution and directory
 	- `Project` -> `Add new item` -> select Header file
+- Select build for `x64` (Use configuration manager) and right click on solution and choose `Build Solution`
 - Write C++ code and expose simple C interface to Unity3D through preprocessor `__declspec` 
 **C++ Code Sample**:
 ```cpp
@@ -120,8 +121,12 @@ static void UNITY_INTERFACE_API
     };
 }
 ```
-
+## FAQ
+- [`EntryPointNotFoundException`](https://answers.unity.com/questions/1360004/entrypointnotfoundexception-native-plugin-help.html)
+	- Choose Entrypoint as Functionname e.g. `[DllImport("__MyPlugin", EntryPoint = “displayNumber”)]` (C#) for `int displayNumber()`(C++)
 
 ## References
 - [C++ DLL Build VS2015/VS2019](https://docs.microsoft.com/en-us/cpp/build/walkthrough-creating-and-using-a-dynamic-link-library-cpp?view=vs-2019)
 - [Common Language Infrastructure Interoperability](https://www.mono-project.com/docs/advanced/pinvoke/) (using other existing code)
+- [Visual Studio Code - C++ Native Plugin Setup](https://www.alanzucconi.com/2015/10/11/how-to-write-native-plugins-for-unity/)
+- [Native C++ Plugin persistent object reference in C#](https://answers.unity.com/questions/1200157/nonstatic-extern-functions-from-dll-plugin-import.html?_ga=2.245716996.1632391841.1599469631-970215712.1589606808)
