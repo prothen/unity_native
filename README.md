@@ -185,6 +185,7 @@ static void UNITY_INTERFACE_API
 
 ## Build ipopt for Windows
 - [build story](https://list.coin-or.org/pipermail/ipopt/2017-June/004471.html) (pure Windows)
+- [Ipopt - Windows compilation collection](https://projects.coin-or.org/Ipopt/wiki/CompilationHints)
 - [get fast BLAS implementation](https://coin-or.github.io/Ipopt/index.html#PREREQUISITES)
 Open directory on `/mnt/c/build_ipopt` from WSL distro Ubuntu 18.04.
 Then install dependencies with 
@@ -196,10 +197,13 @@ sudo apt-get install gcc g++ gfortran git patch wget pkg-config liblapack-dev li
 - `mkdir build && cd build`
 	- default: `../configure && make && make tests`
 	- pardiso: `../configure --with-pardiso="$home/software/pardiso/libpardiso600-GNU800-X86-64.so -fopenmp -lgfortran" && make tests`
+	- intel mkl: `--with-lapack="-L$HOME/software/mkl -lf77blas -lcblas -latlas"
 ### Download solvers
 - [pardiso](https://pardiso-project.org/)
 	- License: `03C0F8E704A1CA20FEBA44B4399176E739E9E5931DE83F43375E7B1C`
 	- `export PATH=/home/colman/software/pardiso:$PATH`
 	- `export LD_LIBRARY_PATH=/home/colman/software/pardiso:$LD_LIBRARY_PATH`
+- [Intel MKL - BLAS implementation](https://software.intel.com/content/www/us/en/develop/tools/math-kernel-library/choose-download/linux.html) (recommended with pardiso)
 - [hsl](http://www.hsl.rl.ac.uk/download/thanks/)
+- [ampl guide](https://www.tu-chemnitz.de/mathematik/part_dgl/teaching/WS2009_Grundlagen_der_Optimierung/amplguide.pdf)
 	- 
