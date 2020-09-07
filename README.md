@@ -78,7 +78,7 @@ float update(Test* persistentObject) {
 ```
 
 
-**Visual Studio:**
+**Unity3D:**
 ```csharp
 
 public class NativePluginWrapper
