@@ -7,8 +7,8 @@
 
 
 Test* initialise() {
-	Test persistentObject = Test();
-	return &persistentObject;
+	Test* persistentObject = new Test();
+	return persistentObject;
 }
 
 float update(Test* persistentObject) {

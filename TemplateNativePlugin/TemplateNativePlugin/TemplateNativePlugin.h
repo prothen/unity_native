@@ -4,10 +4,10 @@ class Test {
 
 public:
 
-	float x = 0;
+	volatile float x = 0.0f;
 
 	void increment() {
-		x += 1;
+		x += 1.0f;
 	}
 
 	float get_value() {

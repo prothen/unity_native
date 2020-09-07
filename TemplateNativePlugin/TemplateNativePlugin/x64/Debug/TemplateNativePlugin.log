@@ -1,3 +1,3 @@
 ﻿  TemplateNativePlugin.cpp
-C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin\TemplateNativePlugin.cpp(11): warning C4172: returning address of local variable or temporary: persistentObject
+     Creating library C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\x64\Debug\TemplateNativePlugin.lib and object C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\x64\Debug\TemplateNativePlugin.exp
   TemplateNativePlugin.vcxproj -> C:\Users\colma\hcps\MyUnityPlugins\TemplateNativePlugin\TemplateNativePlugin\x64\Debug\TemplateNativePlugin.dll
