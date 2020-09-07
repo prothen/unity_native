@@ -60,6 +60,50 @@ extern "C" MATHLIBRARY_API bool fibonacci_next();
     }
 ```
 
+### Persistency of C++ Objects
+With an exemplatory Test class, use `new` operator to dynamically allocate memory and store the reference in Unity3D as an `IntPtr`.
+
+
+**Visual Studio:**
+```cpp
+Test* initialise() {
+	Test* persistentObject = new Test();
+	return persistentObject;
+}
+
+float update(Test* persistentObject) {
+	persistentObject->increment();
+	return persistentObject->get_value();
+}
+```
+
+
+**Visual Studio:**
+```csharp
+
+public class NativePluginWrapper
+{
+
+    [DllImport("TemplateNativePlugin", EntryPoint = "initialise")]
+    private static extern IntPtr initialise();
+
+    [DllImport("TemplateNativePlugin", EntryPoint = "update")]
+    private static extern float update(IntPtr objectReference);
+
+    public IntPtr ObjectReference;
+
+    public NativePluginWrapper()
+    {
+        ObjectReference = initialise();
+    }
+
+    public NativePluginWrapper(IntPtr objectReference)
+    {
+        ObjectReference = objectReference;
+    }
+}
+```
+
 ### Callbacks to GraphicsEvents
 - see headers under `C:\Program Files\Unity\Hub\Editor\2019.4.0f1\Editor\Data\PluginAPI` (if using Docker Hub)
 ```cpp
