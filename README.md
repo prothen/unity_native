@@ -123,8 +123,11 @@ static void UNITY_INTERFACE_API
 ```
 ## FAQ
 - [`EntryPointNotFoundException`](https://answers.unity.com/questions/1360004/entrypointnotfoundexception-native-plugin-help.html)
+	- If entrypoint ommitted then the C# function name is used, the entrypoint parameter allows to use distinct c# function names
 	- Choose Entrypoint as Functionname e.g. `[DllImport("__MyPlugin", EntryPoint = “displayNumber”)]` (C#) for `int displayNumber()`(C++)
 	- [Official Microsoft DllImportAttribute.EntryPoint reference](https://docs.microsoft.com/en-us/dotnet/framework/interop/specifying-an-entry-point)
+- [IntPtr namespace](https://docs.microsoft.com/en-us/dotnet/api/system.intptr?view=netcore-3.1)
+	- requires `using System;` and initialise with `IntPtr.Zero;`
 
 ## References
 - [C++ DLL Build VS2015/VS2019](https://docs.microsoft.com/en-us/cpp/build/walkthrough-creating-and-using-a-dynamic-link-library-cpp?view=vs-2019)
@@ -132,3 +135,4 @@ static void UNITY_INTERFACE_API
 - [Visual Studio Code - C++ Native Plugin Setup](https://www.alanzucconi.com/2015/10/11/how-to-write-native-plugins-for-unity/)
 - [Native C++ Plugin persistent object reference in C#](https://answers.unity.com/questions/1200157/nonstatic-extern-functions-from-dll-plugin-import.html?_ga=2.245716996.1632391841.1599469631-970215712.1589606808)
 - [C++ Google Style Guide](https://google.github.io/styleguide/cppguide.html)
+- [C++ Background Thread in Native Plugin](https://ritchielozada.com/2017/06/16/interacting-with-plugins-in-unity-and-visual-studio/)
