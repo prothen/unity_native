@@ -207,4 +207,34 @@ sudo apt-get install gcc g++ gfortran git patch wget pkg-config liblapack-dev li
 - [Intel MKL - BLAS implementation](https://software.intel.com/content/www/us/en/develop/tools/math-kernel-library/choose-download/linux.html) (recommended with pardiso)
 - [hsl](http://www.hsl.rl.ac.uk/download/thanks/)
 - [ampl guide](https://www.tu-chemnitz.de/mathematik/part_dgl/teaching/WS2009_Grundlagen_der_Optimierung/amplguide.pdf)
-	- 
+
+
+## Execute Python Scripts
+### Install Debug Binaries
+- Build from source [reference](https://index.ros.org/doc/ros2/Installation/Eloquent/Windows-Development-Setup/#extra-stuff-for-debug-mode)
+```bash
+cd .\PCbuild
+get_externals.bat
+build.bat -p x64 -d
+```
+- add include dirs `./Include` and `./PC` and add Linker `.PCbuild\amd64`
+- [Import Python headers](https://www.codeproject.com/Articles/820116/Embedding-Python-program-in-a-C-Cplusplus-code)
+```python
+#include <stdio.h>
+#include <conio.h>
+#include <Python.h>
+
+int main()
+{
+	char filename[] = "pyemb7.py";
+	FILE* fp;
+
+	Py_Initialize();
+
+	fp = _Py_fopen(filename, "r");
+	PyRun_SimpleFile(fp, filename);
+
+	Py_Finalize();
+	return 0;
+}
+``` 

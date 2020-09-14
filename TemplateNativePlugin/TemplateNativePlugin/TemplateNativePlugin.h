@@ -19,6 +19,7 @@ public:
 extern "C" {
 	DLLExport Test* initialise();
 	DLLExport float update(Test*);
+	DLLExport int launch();
 }
 
 // The following ifdef block is the standard way of creating macros which make exporting
