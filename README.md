@@ -185,6 +185,7 @@ static void UNITY_INTERFACE_API
 
 ## Build ipopt for Windows
 - [build story](https://list.coin-or.org/pipermail/ipopt/2017-June/004471.html) (pure Windows)
+- cross compile using `mingw` with `./configure --host=x86_64-w64-mingw32` 
 - [Ipopt - Windows compilation collection](https://projects.coin-or.org/Ipopt/wiki/CompilationHints)
 - [get fast BLAS implementation](https://coin-or.github.io/Ipopt/index.html#PREREQUISITES)
 Open directory on `/mnt/c/build_ipopt` from WSL distro Ubuntu 18.04.
