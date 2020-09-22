@@ -1,0 +1,6 @@
+﻿     Creating library C:\Users\colma\hcps\Interfaces\Native\Ros2Test\Ros2Test\x64\Release\Ros2Test.lib and object C:\Users\colma\hcps\Interfaces\Native\Ros2Test\Ros2Test\x64\Release\Ros2Test.exp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 813 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Ros2Test.vcxproj -> C:\Users\colma\hcps\Interfaces\Native\Ros2Test\Ros2Test\x64\Release\Ros2Test.dll

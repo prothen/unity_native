@@ -1,2 +1,9 @@
 *.ipch
 *.db
+*.orig
+*.iobj
+*.pdb
+*.exp
+*.ipdb
+*.lib
+*.ilk
