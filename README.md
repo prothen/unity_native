@@ -103,6 +103,49 @@ public class NativePluginWrapper
     }
 }
 ```
+### Analyse dependencies and exports
+
+```bash
+C:\Users\colma\hcps\Interfaces\Native\Ros2Test\Ros2Test\x64\Release>dumpbin /DEPENDENTS /EXPORTS Ros2Test.dll
+Microsoft (R) COFF/PE Dumper Version 14.26.28806.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file Ros2Test.dll
+
+File Type: DLL
+
+  Image has the following dependencies:
+
+    rclcpp.dll
+    rcutils.dll
+    KERNEL32.dll
+
+  Section contains the following exports for Ros2Test.dll
+
+    00000000 characteristics
+    FFFFFFFF time date stamp
+        0.00 version
+           1 ordinal base
+           3 number of functions
+           3 number of names
+
+    ordinal hint RVA      name
+
+          1    0 00001A50 initialiseObject = initialiseObject
+          2    1 00001A70 update = update
+          3    2 00001AB0 update_state = update_state
+
+  Summary
+
+        3000 .data
+        2000 .pdata
+       11000 .rdata
+        1000 .reloc
+        1000 .rsrc
+       13000 .text
+        1000 _RDATA
+```
 
 ### Callbacks to GraphicsEvents
 - see headers under `C:\Program Files\Unity\Hub\Editor\2019.4.0f1\Editor\Data\PluginAPI` (if using Docker Hub)
