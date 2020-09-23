@@ -1,6 +1,25 @@
 # unity_native
 This repository collects setup information about designing a native plugin for Unity3D with persistent objects.
 
+## Overview
+- TemplateNativePlugin : naive template for counting up in a persistent object 
+- Ros2Test : rclcpp test interface  with default project for dll visual studio projects
+- ConsolePlugin : ROS2 test project that is based on a lean console application
+
+## Debugging
+- See output directory under `c:\users\username\AppData\Local\Unity\Editor\`
+- Setup Unity3D symbols and Visual Studio live debugging
+    - create registry entry (execute `./resources/live_debugging.reg`)
+
+**Registry File**:
+```bash
+Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AeDebug]
+"Auto"="1"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows NT\CurrentVersion\AeDebug]
+ "Auto"="1"
+```
+
 ## Plugin Setup (Native-Plugin / C++)
 ### VS2019
 - Create new project select `C++` -> `Dynamic-Link-Library (DLL)`

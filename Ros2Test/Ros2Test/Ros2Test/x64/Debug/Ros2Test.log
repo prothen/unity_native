@@ -1,0 +1,7 @@
+﻿  pch.cpp
+  dllmain.cpp
+  Ros2Test.cpp
+  Generating Code...
+dllmain.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+     Creating library C:\Users\colma\hcps\Interfaces\Native\Ros2Test\Ros2Test\x64\Debug\Ros2Test.lib and object C:\Users\colma\hcps\Interfaces\Native\Ros2Test\Ros2Test\x64\Debug\Ros2Test.exp
+  Ros2Test.vcxproj -> C:\Users\colma\hcps\Interfaces\Native\Ros2Test\Ros2Test\x64\Debug\Ros2Test.dll
