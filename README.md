@@ -10,6 +10,7 @@ This repository collects setup information about designing a native plugin for U
 - See output directory under `c:\users\username\AppData\Local\Unity\Editor\`
 - Setup Unity3D symbols and Visual Studio live debugging
     - create registry entry (execute `./resources/live_debugging.reg`)
+- execute unity with `-dbgbreak`
 
 **Registry File**:
 ```bash

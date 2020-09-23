@@ -40,7 +40,7 @@ public:
 		message_.header.frame_id = "odom";
 		message_.child_frame_id = "base";
 		_parse_state_to_message(state);
-		//start_publish();
+		start_publish();
 	}
 	void start_publish() {
 		publisher_ = this->create_publisher<nav_msgs::msg::Odometry>("groundtruth", 10);
@@ -74,13 +74,20 @@ private:
 class Wrapper {
 public:
 	Wrapper(int argc, char* argv[]) {
-		rclcpp::init(argc, argv);
-		// node_ = std::make_shared<CustomNode>();
-		//rclcpp::spin_some(node_);
-		//thread
-		//rclcpp::ExecutorOptions options();
-		//executor_->add_node(node_);
-		//executor_.spin_some();
+		//try {
+			rclcpp::init(argc, argv);
+			//node_ = std::make_shared<CustomNode>();
+			//rclcpp::spin_some(node_);
+			//thread
+			//rclcpp::ExecutorOptions options();
+			//executor_->add_node(node_);
+			//executor_.spin_some();
+		/*}
+		catch (std::exception& e)
+		{
+			std::cout << "exception: " << e.what() << std::endl;
+		}*/
+		
 	}
 	//rclcpp::executors::MultiThreadedExecutor* executor_;
 	void start_publish() {
