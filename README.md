@@ -2,7 +2,7 @@
 This repository collects setup information about designing a native plugin for Unity3D with persistent objects.
 
 ## Overview
-- TemplateNativePlugin : naive template for counting up in a persistent object 
+- TemplateNativePlugin : naive template for counting up in a persistent object
 - Ros2Test : rclcpp test interface  with default project for dll visual studio projects
 - ConsolePlugin : ROS2 test project that is based on a lean console application
 
@@ -25,9 +25,9 @@ Windows Registry Editor Version 5.00
 ### VS2019
 - Create new project select `C++` -> `Dynamic-Link-Library (DLL)`
 - Set Project name (empty Location and solution name) & uncheck same directory for solution and directory
-	- `Project` -> `Add new item` -> select Header file
+        - `Project` -> `Add new item` -> select Header file
 - Select build for `x64` (Use configuration manager) and right click on solution and choose `Build Solution`
-- Write C++ code and expose simple C interface to Unity3D through preprocessor `__declspec` 
+- Write C++ code and expose simple C interface to Unity3D through preprocessor `__declspec`
 **C++ Code Sample**:
 ```cpp
 // header.h
@@ -44,9 +44,9 @@ this exports as prefix all functions such as
 extern "C" MATHLIBRARY_API bool fibonacci_next();
 ```
 - Then copy paste the generate dynamic linked library (dll) into the project directory `Assets/Plugins` and access with following C# code
-	- Note: Mainly two elements are necessary
-		1. Ensure the `using System.Runtime.InteropServices;`
-		2. Before using the C function import the Dll with `[DllImport ("PluginName")]`
+        - Note: Mainly two elements are necessary
+                1. Ensure the `using System.Runtime.InteropServices;`
+                2. Before using the C function import the Dll with `[DllImport ("PluginName")]`
 
 **C# Code Sample**:
 ```csharp
@@ -56,7 +56,7 @@ extern "C" MATHLIBRARY_API bool fibonacci_next();
     class SomeScript : MonoBehaviour {
 
        #if UNITY_IPHONE
-   
+
        // On iOS plugins are statically linked into
        // the executable, so we have to use __Internal as the
        // library name.
@@ -67,7 +67,7 @@ extern "C" MATHLIBRARY_API bool fibonacci_next();
        // Other platforms load plugins dynamically, so pass the name
        // of the plugin's dynamic library.
        [DllImport ("PluginName")]
-    
+
        #endif
 
        private static extern float FooPluginFunction ();
@@ -87,13 +87,13 @@ With an exemplatory Test class, use `new` operator to dynamically allocate memor
 **Visual Studio:**
 ```cpp
 Test* initialise() {
-	Test* persistentObject = new Test();
-	return persistentObject;
+        Test* persistentObject = new Test();
+        return persistentObject;
 }
 
 float update(Test* persistentObject) {
-	persistentObject->increment();
-	return persistentObject->get_value();
+        persistentObject->increment();
+        return persistentObject->get_value();
 }
 ```
 
@@ -172,32 +172,32 @@ File Type: DLL
 ```cpp
 #include "IUnityInterface.h"
 #include "IUnityGraphics.h"
-    
+
 static IUnityInterfaces* s_UnityInterfaces = NULL;
 static IUnityGraphics* s_Graphics = NULL;
 static UnityGfxRenderer s_RendererType = kUnityGfxRendererNull;
-    
+
 // Unity plugin load event
 extern "C" void UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API
     UnityPluginLoad(IUnityInterfaces* unityInterfaces)
 {
     s_UnityInterfaces = unityInterfaces;
     s_Graphics = unityInterfaces->Get<IUnityGraphics>();
-        
+
     s_Graphics->RegisterDeviceEventCallback(OnGraphicsDeviceEvent);
-        
+
     // Run OnGraphicsDeviceEvent(initialize) manually on plugin load
     // to not miss the event in case the graphics device is already initialized
     OnGraphicsDeviceEvent(kUnityGfxDeviceEventInitialize);
 }
-    
+
 // Unity plugin unload event
 extern "C" void UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API
     UnityPluginUnload()
 {
     s_Graphics->UnregisterDeviceEventCallback(OnGraphicsDeviceEvent);
 }
-    
+
 static void UNITY_INTERFACE_API
     OnGraphicsDeviceEvent(UnityGfxDeviceEventType eventType)
 {
@@ -230,11 +230,11 @@ static void UNITY_INTERFACE_API
 ```
 ## FAQ
 - [`EntryPointNotFoundException`](https://answers.unity.com/questions/1360004/entrypointnotfoundexception-native-plugin-help.html)
-	- If entrypoint ommitted then the C# function name is used to lookup C++ function in DLL, the entrypoint parameter allows to use distinct c# function names
-	- e.g. `[DllImport("__MyPlugin", EntryPoint = “displayNumber”)]` (C#) for `int newDisplayNumber()`(C++)
-	- [Official Microsoft DllImportAttribute.EntryPoint reference](https://docs.microsoft.com/en-us/dotnet/framework/interop/specifying-an-entry-point)
+        - If entrypoint ommitted then the C# function name is used to lookup C++ function in DLL, the entrypoint parameter allows to use distinct c# function names
+        - e.g. `[DllImport("__MyPlugin", EntryPoint = “displayNumber”)]` (C#) for `int newDisplayNumber()`(C++)
+        - [Official Microsoft DllImportAttribute.EntryPoint reference](https://docs.microsoft.com/en-us/dotnet/framework/interop/specifying-an-entry-point)
 - [IntPtr namespace](https://docs.microsoft.com/en-us/dotnet/api/system.intptr?view=netcore-3.1)
-	- requires `using System;` and initialise with `IntPtr.Zero;`
+        - requires `using System;` and initialise with `IntPtr.Zero;`
 
 ## References
 - [C++ DLL Build VS2015/VS2019](https://docs.microsoft.com/en-us/cpp/build/walkthrough-creating-and-using-a-dynamic-link-library-cpp?view=vs-2019)
@@ -248,25 +248,24 @@ static void UNITY_INTERFACE_API
 
 ## Build ipopt for Windows
 - [build story](https://list.coin-or.org/pipermail/ipopt/2017-June/004471.html) (pure Windows)
-- cross compile using `mingw` with `./configure --host=x86_64-w64-mingw32` 
+- cross compile using `mingw` with `./configure --host=x86_64-w64-mingw32`
 - [Ipopt - Windows compilation collection](https://projects.coin-or.org/Ipopt/wiki/CompilationHints)
 - [get fast BLAS implementation](https://coin-or.github.io/Ipopt/index.html#PREREQUISITES)
 Open directory on `/mnt/c/build_ipopt` from WSL distro Ubuntu 18.04.
-Then install dependencies with 
+Then install dependencies with
 ```bash
 sudo apt-get install gcc g++ gfortran git patch wget pkg-config liblapack-dev libmetis-dev
 ```
 ### Build ipopt
 - clone repository `git clone`
 - `mkdir build && cd build`
-	- default: `../configure && make && make tests`
-	- pardiso: `../configure --with-pardiso="$home/software/pardiso/libpardiso600-GNU800-X86-64.so -fopenmp -lgfortran" && make tests`
-	- intel mkl: `--with-lapack="-L$HOME/software/mkl -lf77blas -lcblas -latlas"
+        - default: `../configure && make && make tests`
+        - pardiso: `../configure --with-pardiso="$home/software/pardiso/libpardiso600-GNU800-X86-64.so -fopenmp -lgfortran" && make tests`
+        - intel mkl: `--with-lapack="-L$HOME/software/mkl -lf77blas -lcblas -latlas"
 ### Download solvers
 - [pardiso](https://pardiso-project.org/)
-	- License: `03C0F8E704A1CA20FEBA44B4399176E739E9E5931DE83F43375E7B1C`
-	- `export PATH=/home/colman/software/pardiso:$PATH`
-	- `export LD_LIBRARY_PATH=/home/colman/software/pardiso:$LD_LIBRARY_PATH`
+        - `export PATH=/home/colman/software/pardiso:$PATH`
+        - `export LD_LIBRARY_PATH=/home/colman/software/pardiso:$LD_LIBRARY_PATH`
 - [Intel MKL - BLAS implementation](https://software.intel.com/content/www/us/en/develop/tools/math-kernel-library/choose-download/linux.html) (recommended with pardiso)
 - [hsl](http://www.hsl.rl.ac.uk/download/thanks/)
 - [ampl guide](https://www.tu-chemnitz.de/mathematik/part_dgl/teaching/WS2009_Grundlagen_der_Optimierung/amplguide.pdf)
@@ -289,15 +288,15 @@ build.bat -p x64 -d
 
 int main()
 {
-	char filename[] = "pyemb7.py";
-	FILE* fp;
+        char filename[] = "pyemb7.py";
+        FILE* fp;
 
-	Py_Initialize();
+        Py_Initialize();
 
-	fp = _Py_fopen(filename, "r");
-	PyRun_SimpleFile(fp, filename);
+        fp = _Py_fopen(filename, "r");
+        PyRun_SimpleFile(fp, filename);
 
-	Py_Finalize();
-	return 0;
+        Py_Finalize();
+        return 0;
 }
-``` 
+```
